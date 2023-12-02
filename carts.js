@@ -6,14 +6,14 @@ let activeCarts = [
     cartID: "777",
     cartItems: [
       {
-        title: "Tasty Strawberries",
-        description: "Assorted sizes, 2 cartons",
+        title: "Tasty StrawBerries",
+        description: "2 cartons",
         cost: 200,
         imageUrl: "stawberries.jpg"
       },
       {
-        title: "Tasty Blackberries",
-        description: "Assorted sizes, 2 cartons",
+        title: "Tasty BlackBerries",
+        description: "2 cartons",
         cost: 295,
         imageUrl: "blackberries.jpg"
       }
@@ -24,17 +24,14 @@ let activeCarts = [
     cartItems: [
       {
         title: "Yummy cookies",
-        description: "Flour and chocolate chips",
+        description: "Chocolate Chips",
         cost: 150,
         imageUrl: "cookies.jpg"
       }
     ]
   }
 ]
-
-//
-// Return shopping cart items for a cart id.
-//
+ 
 // NOTE: for if have a JWT that need to be validated will need that middleware inserted
 // router.get('/:id', authHelper.checkAuth, function (req, res, next) {
 router.get('/:id', function (req, res, next) {
