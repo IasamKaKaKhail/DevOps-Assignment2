@@ -1,0 +1,41 @@
+ name: Workflow for Deploying on the Staging Server
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch: 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Setting up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.10.0
+
+      - name: Check node and npm versions
+        run: |
+          node -v
+          npm -v
+
+      - name: Resolve Dependencies
+        run: npm install
+
+      - name: Build React App
+        run: npm run build-react
+        
+      - name: Deploy Changes to the Staging Server
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avzr --delete
+          path: ./*
+          remote_path: ~/
+          remote_host: 54.198.154.151
+          remote_user: ubuntu
+          remote_key: ${{ secrets.STAGING_SERVER_KEY }}
