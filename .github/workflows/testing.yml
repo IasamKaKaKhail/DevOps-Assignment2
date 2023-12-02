@@ -53,7 +53,8 @@ jobs:
         if: ${{ success() }}
         uses: dawidd6/action-send-mail@v3
         with:
-          connection_url: ${{secrets.EMAIL_URL}}
+          username: ${{SECRETS.EMAIL_URL}}
+          password: ${{SECRETS.EMAIL_PASSWORD}}
           server_address: smtp.gmail.com
           server_port: 465
           secure: true
