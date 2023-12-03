@@ -13,7 +13,7 @@ let activeCarts = [
       },
       {
         title: "Tasty BlackBerries",
-        description: "2 cartons",
+        description: "2 cartons, 1 Free",
         cost: 295,
         imageUrl: "blackberries.jpg"
       }
@@ -24,7 +24,7 @@ let activeCarts = [
     cartItems: [
       {
         title: "Yummy cookies",
-        description: "Chocolate Chips",
+        description: "Chocolate Chips, 2 Curtons Free",
         cost: 150,
         imageUrl: "cookies.jpg"
       }
