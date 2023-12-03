@@ -31,25 +31,6 @@ app.use(function (req, res, next) {
   next(err);
 });
 
-
-const express = require('express');
-
-// Create express app
-const app = express();
-
-// Handle ping request and return pong response
-app.get('/ping', (req, res) => {
-  res.send('pong');
-});
-
-// Start server 
-const port = 3000;
-app.listen(port, () => {
-  console.log(`Ping pong server listening on port ${port}!`);  
-});
-
-
-
 // development error handler that will add in a stacktrace
 if (app.get('env') === 'development') {
   app.use(function (err, req, res, next) { // eslint-disable-line no-unused-vars
