@@ -66,6 +66,6 @@ jobs:
           switches: -avzr --delete
           path: ./*
           remote_path: ~/
-          remote_host: 54.82.216.193
+          remote_host: 51.20.108.221
           remote_user: ubuntu
           remote_key: ${{ secrets.TEST_SERVER_KEY }}
