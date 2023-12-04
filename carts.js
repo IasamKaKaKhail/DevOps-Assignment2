@@ -7,13 +7,17 @@ let activeCarts = [
     cartItems: [
       {
         title: "Tasty StrawBerries",
-        description: "5 boxes",
+        description: "5 cartons",
         cost: 200,
         imageUrl: "stawberries.jpg"
       },
       {
         title: "Tasty BlackBerries",
+<<<<<<< HEAD
         description: "2 cartons, 1 Free",
+=======
+        description: "2 cartons",
+>>>>>>> testing
         cost: 295,
         imageUrl: "blackberries.jpg"
       }
