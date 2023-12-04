@@ -31,6 +31,20 @@ app.use(function (req, res, next) {
   next(err);
 });
 
+<<<<<<< HEAD
+=======
+
+ 
+// Start server 
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Ping pong server listening on port ${port}!`);  
+});
+
+
+
+// development error handler that will add in a stacktrace
+>>>>>>> testing
 if (app.get('env') === 'development') {
   app.use(function (err, req, res, next) { // eslint-disable-line no-unused-vars
     if (err.status)
