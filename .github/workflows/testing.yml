@@ -35,6 +35,31 @@ jobs:
 
       - name: Run Linting
         run: npx eslint src/sum.js src/cartview.js src/shippingOptions.js
+        
+      - name: On Failure
+        if: ${{ failure() }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          connection_url: ${{ secrets.EMAIL_URL }}
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          subject: Failed Deployed Changes on Testing Server
+          to: ${{ secrets.EMAIL_URL }}
+          from: ${{ secrets.EMAIL_URL }}
+          body: Testing Server Workflow was unsuccessful in ${{ github.repository }} and changes were NOT deployed to the Testing Server.
+
+      - name: On Success
+        if: ${{ success() }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          subject: Successfully Deployed Changes on Testing Server
+          to: ${{ secrets.EMAIL_URL }}
+          from: ${{ secrets.EMAIL_URL}}
+          body: Testing Server Workflow was successfully executed in ${{ github.repository }} and changes were deployed to the Testing Server.
           
       - name: Deploy Changes
         uses: burnett01/rsync-deployments@6.0.0
