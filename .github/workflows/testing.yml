@@ -45,7 +45,7 @@ jobs:
           server_port: 465
           secure: true
           subject: Failed Deployed Changes on Testing Server
-          to: ${{ secrets.TO_URL }}
+          to: ${{ secrets.TO_EMAIL }}
           from: ${{ secrets.FROM_EMAIL }}
           body: Testing Server Workflow was unsuccessful in ${{ github.repository }} and changes were NOT deployed to the Testing Server.
 
@@ -58,7 +58,7 @@ jobs:
           server_port: 465
           secure: true
           subject: Successfully Deployed Changes on Testing Server
-          to: ${{ secrets.TO_URL }}
+          to: ${{ secrets.TO_EMAIL }}
           from: ${{ secrets.FROM_EMAIL}}
           body: Testing Server Workflow was successfully executed in ${{ github.repository }} and changes were deployed to the Testing Server.
           
