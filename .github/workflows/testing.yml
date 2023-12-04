@@ -43,7 +43,7 @@ jobs:
           connection_url: ${{secrets.MAIL_CONNECTION}}
           server_address: smtp.gmail.com
           server_port: 465
-          secure: false
+          secure: true
           subject: Failed Deployed Changes on Testing Server
           to: ${{ secrets.TO_URL }}
           from: ${{ secrets.FROM_EMAIL }}
@@ -56,7 +56,7 @@ jobs:
           connection_url: ${{secrets.MAIL_CONNECTION}}
           server_address: smtp.gmail.com
           server_port: 465
-          secure: false
+          secure: true
           subject: Successfully Deployed Changes on Testing Server
           to: ${{ secrets.TO_URL }}
           from: ${{ secrets.FROM_EMAIL}}
