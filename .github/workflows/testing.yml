@@ -54,7 +54,7 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          secure: true
+          secure: false
           subject: Successfully Deployed Changes on Testing Server
           to: ${{ secrets.EMAIL_URL }}
           from: ${{ secrets.EMAIL_URL}}
