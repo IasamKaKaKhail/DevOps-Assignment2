@@ -37,7 +37,6 @@ jobs:
         run: npx eslint src/sum.js src/cartview.js src/shippingOptions.js
           
       - name: Deploy Changes
-        if: ${{ success() }}
         uses: burnett01/rsync-deployments@6.0.0
         with:
           switches: -avzr --delete
