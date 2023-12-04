@@ -32,16 +32,7 @@ app.use(function (req, res, next) {
 });
 
 
-const express = require('express');
-
-// Create express app
-const app = express();
-
-// Handle ping request and return pong response
-app.get('/ping', (req, res) => {
-  res.send('pong');
-});
-
+ 
 // Start server 
 const port = 3000;
 app.listen(port, () => {
