@@ -13,11 +13,7 @@ let activeCarts = [
       },
       {
         title: "Tasty BlackBerries",
-<<<<<<< HEAD
         description: "2 cartons, 1 Free",
-=======
-        description: "2 boxes",
->>>>>>> testing
         cost: 295,
         imageUrl: "blackberries.jpg"
       }
