@@ -35,36 +35,52 @@ jobs:
 
       - name: Run Linting
         run: npx eslint src/sum.js src/cartview.js src/shippingOptions.js
-
-      - name: On Failure
+      
+      - name: Send mail on failure
         if: ${{ failure() }}
         uses: dawidd6/action-send-mail@v3
         with:
-          connection_url: ${{ secrets.EMAIL_URL }}
           server_address: smtp.gmail.com
+          # Server port, default 25:
           server_port: 465
-          secure: true
-          subject: Failed Deployed Changes on Testing Server
-          to: ${{ secrets.EMAIL_URL }}
-          from: ${{ secrets.EMAIL_URL }}
-          body: Testing Server Workflow was unsuccessful in ${{ github.repository }} and changes were NOT deployed to the Testing Server.
-          
-      - name: On Success
+         # # Optional (recommended) mail server username:
+          username: ${{secrets.MAIL_ADDRESS}}
+          # Optional (recommended) mail server password:
+          password: ${{secrets.MAIL_PASSWORD}}
+          # Required mail subject:
+          subject: Failed Deploying Changes on Testing Server
+          # Required recipients' addresses:
+          to: ${{secrets.MAIL_ADDRESS}}
+          # Required sender full name (address can be skipped):
+          from: ${{secrets.MAIL_ADDRESS}}
+          body: |
+                  Testing Server Workflow was unsuccessful
+                  and
+                  changes were NOT deployed to the Testing Server.
+
+      - name: Send mail on success
         if: ${{ success() }}
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
+          # Server port, default 25:
           server_port: 465
-          username: ${{SECRETS.EMAIL_URL}}
-          password: ${{SECRETS.EMAIL_PASSWORD}}
-          secure: true
-          subject: Successfully Deployed Changes on Testing Server
-          to: ${{ secrets.EMAIL_URL }}
-          from: ${{ secrets.EMAIL_URL }}
-          body: Testing Server Workflow was successfully executed in ${{ github.repository }} and changes were deployed to the Testing Server.
-          
+         # # Optional (recommended) mail server username:
+          username: ${{secrets.MAIL_ADDRESS}}
+          # Optional (recommended) mail server password:
+          password: ${{secrets.MAIL_PASSWORD}}
+          # Required mail subject:
+          subject: Successfully Deploying Changes on Testing Server
+          # Required recipients' addresses:
+          to: ${{secrets.MAIL_ADDRESS}}
+          # Required sender full name (address can be skipped):
+          from: ${{secrets.MAIL_ADDRESS}}
+          body: |
+                 Testing Server Workflow was successful
+                 in ${{ github.repository }} and changes were
+                 deployed to the Testing Server.
+     
       - name: Deploy Changes
-        if: ${{ success() }}
         uses: burnett01/rsync-deployments@6.0.0
         with:
           switches: -avzr --delete
