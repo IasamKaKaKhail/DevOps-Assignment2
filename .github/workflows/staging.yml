@@ -1,4 +1,4 @@
- name: Workflow for Deploying on the Staging Server
+name: Workflow for Deploying on the Staging Server
 
 on:
   push:
