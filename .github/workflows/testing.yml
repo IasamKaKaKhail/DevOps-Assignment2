@@ -55,7 +55,7 @@ jobs:
           from: ${{secrets.MAIL_ADDRESS}}
           body: |
                   Testing Server Workflow was unsuccessful
-                  in ${{ github.repository }} and
+                  and
                   changes were NOT deployed to the Testing Server.
 
       - name: Send mail on success
